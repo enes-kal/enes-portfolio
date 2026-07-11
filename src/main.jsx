@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Github, Linkedin, Mail, ArrowUpRight, Code2, Smartphone, Server, BriefcaseBusiness, GraduationCap, MapPin, Sparkles, ChevronDown } from 'lucide-react';
+import { ExternalLink, Mail, ArrowUpRight, Code2, Smartphone, Server, BriefcaseBusiness, GraduationCap, MapPin, Sparkles, ChevronDown } from 'lucide-react';
 import './styles.css';
 
 const profile = {
@@ -80,7 +80,7 @@ function Header() {
     <nav>
       {links.map(link => <a key={link} href={`#${link.toLowerCase()}`}>{link}</a>)}
     </nav>
-    <a className="github" href={profile.github} target="_blank"><Github size={16}/> GitHub</a>
+    <a className="github" href={profile.github} target="_blank"><ExternalLink size={16}/> GitHub</a>
   </header>;
 }
 
@@ -91,7 +91,7 @@ function Hero() {
       <h1>Hi, I'm <strong>{profile.name}</strong><br/><span>{profile.role}</span></h1>
       <p>{profile.about}</p>
       <div className="actions">
-        <a className="btn primary" href={profile.github} target="_blank"><Github size={18}/> View GitHub</a>
+        <a className="btn primary" href={profile.github} target="_blank"><ExternalLink size={18}/> View GitHub</a>
         <a className="btn" href="#projects">See Projects</a>
         <a className="btn ghost" href={`mailto:${profile.email}`}>Contact Me</a>
       </div>
