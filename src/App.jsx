@@ -1,3 +1,4 @@
+jsx
 import {
     ArrowDown,
     ArrowUpRight,
@@ -11,19 +12,12 @@ import {
 
 const experiences = [
     {
-        year: "2017 — 2026",
+        period: "2017 — 2026",
         company: "FinaryLabs",
         role: "Senior Flutter Developer",
         description:
-            "Developing production-ready mobile applications with Flutter and Dart, focusing on scalable architecture, real-time data, performance and maintainability.",
-        tags: [
-            "Flutter",
-            "Dart",
-            "Fintech",
-            "Real-time Data",
-            "iOS",
-            "Android",
-        ],
+            "Developing production mobile applications with Flutter and Dart, with a focus on scalable architecture, financial technologies, performance and clean code.",
+        skills: ["Flutter", "Dart", "iOS", "Android", "Fintech"],
     },
 ];
 
@@ -33,8 +27,8 @@ const projects = [
         title: "Hissedar",
         subtitle: "Hisse Al Sat",
         description:
-            "A modern investment application focused on stock market access, portfolio tracking and financial data.",
-        tags: ["Flutter", "Dart", "Finance", "REST API"],
+            "Modern investment application focused on stock market access, portfolio tracking and financial data.",
+        skills: ["Flutter", "Dart", "Finance", "REST API"],
         google:
             "https://play.google.com/store/apps/details?id=app.hissedar.com&hl=en_US",
         apple:
@@ -45,8 +39,8 @@ const projects = [
         title: "FinaryTrade",
         subtitle: "Broker App",
         description:
-            "A trading and brokerage application built for financial markets and real-time trading workflows.",
-        tags: ["Flutter", "Dart", "Broker", "Real-time"],
+            "Trading and brokerage mobile application built for financial markets and real-time trading workflows.",
+        skills: ["Flutter", "Dart", "Broker", "Real-time"],
         google:
             "https://play.google.com/store/apps/details?id=com.finary.trader&hl=en_US",
         apple:
@@ -58,7 +52,7 @@ const projects = [
         subtitle: "Şarkı Borsası",
         description:
             "A music investment platform where users can participate in the performance and value of songs.",
-        tags: ["Flutter", "Dart", "Fintech", "API"],
+        skills: ["Flutter", "Dart", "Fintech", "API"],
         google:
             "https://play.google.com/store/apps/details?id=com.finarylabs.parca&hl=en_US",
         apple:
@@ -69,8 +63,8 @@ const projects = [
         title: "Liderform",
         subtitle: "Sports Platform",
         description:
-            "A mobile sports platform delivering horse racing information, analysis and user-focused experiences.",
-        tags: ["Flutter", "Dart", "REST API", "Mobile"],
+            "Mobile sports platform delivering horse racing information, analysis and user-focused experiences.",
+        skills: ["Flutter", "Dart", "REST API", "Mobile"],
         google:
             "https://play.google.com/store/apps/details?id=com.liderform&hl=tr",
         apple:
@@ -81,40 +75,19 @@ const projects = [
 const skillGroups = [
     {
         title: "Mobile",
-        skills: ["Flutter", "Dart", "iOS", "Android"],
+        items: ["Flutter", "Dart", "iOS", "Android"],
     },
     {
         title: "Architecture",
-        skills: [
-            "Clean Architecture",
-            "MVVM",
-            "SOLID",
-            "OOP",
-        ],
+        items: ["Clean Architecture", "MVVM", "SOLID", "OOP"],
     },
     {
         title: "State Management",
-        skills: ["MobX", "Riverpod", "BLoC"],
+        items: ["MobX", "Riverpod", "BLoC"],
     },
     {
         title: "Backend & Data",
-        skills: [
-            "REST API",
-            "GraphQL",
-            "Dio",
-            "Firebase",
-            "SQLite",
-            "Hive",
-        ],
-    },
-    {
-        title: "Tools",
-        skills: [
-            "Git",
-            "CI/CD",
-            "App Store",
-            "Google Play",
-        ],
+        items: ["REST API", "GraphQL", "Dio", "Firebase", "SQLite", "Hive"],
     },
 ];
 
@@ -123,14 +96,12 @@ function App() {
         <div className="site">
             <div className="noise" />
 
-            {/* NAVIGATION */}
-
             <header className="header">
-                <a href="#home" className="brand">
+                <a href="#home" className="logo">
                     ENES<span>.</span>
                 </a>
 
-                <nav>
+                <nav className="nav">
                     <a href="#experience">Experience</a>
                     <a href="#skills">Skills</a>
                     <a href="#projects">Projects</a>
@@ -138,184 +109,128 @@ function App() {
                 </nav>
 
                 <a
+                    className="linkedin-link"
                     href="https://www.linkedin.com/in/eneskal/"
                     target="_blank"
                     rel="noreferrer"
-                    className="header-link"
                 >
                     LinkedIn
-                    <ArrowUpRight size={14} />
+                    <ArrowUpRight size={13} />
                 </a>
             </header>
 
             <main>
-                {/* HERO */}
-
-                <section className="hero section-width" id="home">
-                    <div className="hero-left">
+                <section className="hero container" id="home">
+                    <div className="hero-content">
                         <div className="availability">
-                            <span className="pulse" />
-                            Available for remote opportunities
+                            <span />
+                            AVAILABLE FOR REMOTE OPPORTUNITIES
                         </div>
 
-                        <p className="hero-kicker">
-                            SENIOR MOBILE APP DEVELOPER
-                        </p>
+                        <p className="eyebrow">SENIOR FLUTTER DEVELOPER</p>
 
                         <h1>
-                            I build mobile
+                            Building mobile
                             <br />
                             products with
                             <br />
-                            <em>Flutter.</em>
+                            <span>Flutter.</span>
                         </h1>
 
-                        <p className="hero-text">
-                            Senior Flutter Developer with 10+ years of
-                            software development experience, building
-                            production-ready applications for iOS and
-                            Android.
+                        <p className="hero-description">
+                            Senior Flutter Developer focused on building
+                            scalable, production-ready mobile applications
+                            for iOS and Android.
                         </p>
 
-                        <div className="hero-buttons">
-                            <a href="#projects" className="button button-dark">
-                                Explore my work
-                                <ArrowDown size={16} />
+                        <div className="hero-actions">
+                            <a href="#projects" className="btn btn-primary">
+                                View projects
+                                <ArrowDown size={14} />
                             </a>
 
                             <a
-                                href="https://www.linkedin.com/in/eneskal/"
+                                href="https://github.com/enes-kal"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="button button-outline"
+                                className="btn btn-secondary"
                             >
-                                LinkedIn
-                                <ArrowUpRight size={16} />
+                                <Github size={14} />
+                                GitHub
                             </a>
                         </div>
 
-                        <div className="hero-location">
-                            <MapPin size={14} />
+                        <div className="location">
+                            <MapPin size={13} />
                             Istanbul, Türkiye
                         </div>
                     </div>
 
-                    <div className="hero-right">
+                    <div className="hero-visual">
                         <div className="terminal">
                             <div className="terminal-top">
                                 <div className="terminal-dots">
-                                    <span />
-                                    <span />
-                                    <span />
+                                    <i />
+                                    <i />
+                                    <i />
                                 </div>
 
-                                <span className="terminal-name">
-                                    enes.dart
-                                </span>
-
-                                <span className="terminal-space" />
+                                <span>enes.dart</span>
                             </div>
 
-                            <div className="terminal-body">
+                            <div className="terminal-code">
                                 <div>
-                                    <span className="purple">class</span>{" "}
-                                    <span className="blue">
-                                        SeniorDeveloper
-                                    </span>{" "}
-                                    {"{"}
+                                    <b>class</b>{" "}
+                                    <strong>EnesKal</strong> {"{"}
                                 </div>
 
                                 <div className="indent">
-                                    <span className="purple">final</span>{" "}
-                                    String{" "}
-                                    <span className="green">
-                                        experience
-                                    </span>{" "}
-                                    ={" "}
-                                    <span className="orange">
-                                        "10+ years"
-                                    </span>
-                                    ;
+                                    <b>final</b> String role ={" "}
+                                    <em>"Senior Flutter Developer"</em>;
                                 </div>
 
                                 <div className="indent">
-                                    <span className="purple">final</span>{" "}
-                                    String{" "}
-                                    <span className="green">
-                                        specialization
-                                    </span>{" "}
-                                    ={" "}
-                                    <span className="orange">
-                                        "Flutter"
-                                    </span>
-                                    ;
+                                    <b>final</b> String experience ={" "}
+                                    <em>"10+ years"</em>;
                                 </div>
 
                                 <div className="indent">
-                                    <span className="purple">final</span>{" "}
-                                    List&lt;String&gt;{" "}
-                                    <span className="green">
-                                        platforms
-                                    </span>{" "}
-                                    = [
-                                </div>
-
-                                <div className="indent-2">
-                                    <span className="orange">
-                                        "iOS"
-                                    </span>
-                                    ,
-                                </div>
-
-                                <div className="indent-2">
-                                    <span className="orange">
-                                        "Android"
-                                    </span>
+                                    <b>final</b> String framework ={" "}
+                                    <em>"Flutter"</em>;
                                 </div>
 
                                 <div className="indent">
-                                    ];
+                                    <b>final</b> bool cleanCode ={" "}
+                                    <strong>true</strong>;
                                 </div>
 
                                 <div className="indent">
-                                    <span className="purple">bool</span>{" "}
-                                    <span className="green">
-                                        lovesCleanCode
-                                    </span>{" "}
-                                    ={" "}
-                                    <span className="blue">
-                                        true
-                                    </span>
-                                    ;
+                                    <b>final</b> bool available ={" "}
+                                    <strong>true</strong>;
                                 </div>
 
                                 <div>{"}"}</div>
 
-                                <div className="terminal-cursor">
-                                    _
-                                </div>
+                                <div className="cursor">_</div>
                             </div>
                         </div>
 
-                        <div className="floating-card">
+                        <div className="stat-card">
                             <Smartphone size={17} />
+
                             <div>
                                 <strong>10+</strong>
-                                <span>Mobile Apps</span>
+                                <span>Mobile Applications</span>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* INTRO */}
+                <section className="about container">
+                    <div className="section-number">01</div>
 
-                <section className="intro section-width">
-                    <div className="section-index">01</div>
-
-                    <div className="intro-content">
-                        <p className="mono-label">
-                            A LITTLE ABOUT ME
-                        </p>
+                    <div className="about-content">
+                        <p className="section-label">ABOUT ME</p>
 
                         <h2>
                             From idea to App Store,
@@ -323,77 +238,60 @@ function App() {
                             I build the whole experience.
                         </h2>
 
-                        <p className="intro-description">
-                            I specialize in cross-platform mobile
-                            development with Flutter. My experience spans
-                            fintech, trading, sports and consumer products.
-                            I care about clean architecture, performance
-                            and code that remains maintainable as products
-                            grow.
+                        <p>
+                            I specialize in cross-platform mobile development
+                            with Flutter. My experience covers fintech, trading,
+                            sports and consumer products. I care about clean
+                            architecture, performance and maintainable code.
                         </p>
                     </div>
                 </section>
 
-                {/* EXPERIENCE */}
-
-                <section
-                    className="content-section section-width"
-                    id="experience"
-                >
-                    <div className="section-title-row">
-                        <div className="section-index">02</div>
+                <section className="section container" id="experience">
+                    <div className="section-heading">
+                        <div className="section-number">02</div>
 
                         <div>
-                            <p className="mono-label">EXPERIENCE</p>
+                            <p className="section-label">EXPERIENCE</p>
                             <h2>Where I've worked.</h2>
                         </div>
                     </div>
 
                     <div className="timeline">
-                        {experiences.map((experience) => (
-                            <div
-                                className="timeline-item"
-                                key={experience.company}
-                            >
+                        {experiences.map((item) => (
+                            <article className="experience" key={item.company}>
                                 <div className="timeline-line">
-                                    <span className="timeline-dot" />
+                                    <span />
                                 </div>
 
-                                <div className="timeline-date">
-                                    {experience.year}
+                                <div className="experience-date">
+                                    {item.period}
                                 </div>
 
-                                <div className="timeline-content">
-                                    <span className="company">
-                                        {experience.company}
-                                    </span>
+                                <div className="experience-info">
+                                    <span className="company">{item.company}</span>
 
-                                    <h3>{experience.role}</h3>
+                                    <h3>{item.role}</h3>
 
-                                    <p>{experience.description}</p>
+                                    <p>{item.description}</p>
 
-                                    <div className="tag-list">
-                                        {experience.tags.map((tag) => (
-                                            <span key={tag}>{tag}</span>
+                                    <div className="tags">
+                                        {item.skills.map((skill) => (
+                                            <span key={skill}>{skill}</span>
                                         ))}
                                     </div>
                                 </div>
-                            </div>
+                            </article>
                         ))}
                     </div>
                 </section>
 
-                {/* SKILLS */}
-
-                <section
-                    className="content-section section-width"
-                    id="skills"
-                >
-                    <div className="section-title-row">
-                        <div className="section-index">03</div>
+                <section className="section container" id="skills">
+                    <div className="section-heading">
+                        <div className="section-number">03</div>
 
                         <div>
-                            <p className="mono-label">SKILLS</p>
+                            <p className="section-label">SKILLS</p>
                             <h2>Tools of the trade.</h2>
                         </div>
                     </div>
@@ -401,13 +299,11 @@ function App() {
                     <div className="skills-grid">
                         {skillGroups.map((group) => (
                             <div className="skill-group" key={group.title}>
-                                <span className="skill-group-title">
-                                    {group.title}
-                                </span>
+                                <span>{group.title}</span>
 
-                                <div className="skills">
-                                    {group.skills.map((skill) => (
-                                        <span key={skill}>{skill}</span>
+                                <div>
+                                    {group.items.map((item) => (
+                                        <b key={item}>{item}</b>
                                     ))}
                                 </div>
                             </div>
@@ -415,115 +311,92 @@ function App() {
                     </div>
                 </section>
 
-                {/* PROJECTS */}
-
-                <section
-                    className="content-section section-width"
-                    id="projects"
-                >
-                    <div className="section-title-row">
-                        <div className="section-index">04</div>
+                <section className="section container" id="projects">
+                    <div className="section-heading">
+                        <div className="section-number">04</div>
 
                         <div>
-                            <p className="mono-label">
-                                SELECTED PROJECTS
-                            </p>
-
+                            <p className="section-label">SELECTED WORK</p>
                             <h2>Products in production.</h2>
                         </div>
                     </div>
 
                     <div className="projects">
                         {projects.map((project) => (
-                            <article
-                                className="project"
-                                key={project.title}
-                            >
-                                <div className="project-top">
-                                    <span className="project-number">
-                                        {project.number}
-                                    </span>
-
-                                    <div className="project-links">
-                                        <a
-                                            href={project.google}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            title="Google Play"
-                                        >
-                                            Google Play
-                                            <ExternalLink size={13} />
-                                        </a>
-
-                                        <a
-                                            href={project.apple}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            title="App Store"
-                                        >
-                                            App Store
-                                            <ExternalLink size={13} />
-                                        </a>
-                                    </div>
+                            <article className="project" key={project.title}>
+                                <div className="project-number">
+                                    {project.number}
                                 </div>
 
                                 <div className="project-main">
-                                    <p className="project-subtitle">
-                                        {project.subtitle}
-                                    </p>
+                                    <div className="project-top">
+                                        <div>
+                                            <span>{project.subtitle}</span>
+                                            <h3>{project.title}</h3>
+                                        </div>
 
-                                    <h3>{project.title}</h3>
+                                        <div className="store-links">
+                                            <a
+                                                href={project.google}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                            >
+                                                Google Play
+                                                <ExternalLink size={12} />
+                                            </a>
 
-                                    <p className="project-description">
-                                        {project.description}
-                                    </p>
+                                            <a
+                                                href={project.apple}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                            >
+                                                App Store
+                                                <ExternalLink size={12} />
+                                            </a>
+                                        </div>
+                                    </div>
 
-                                    <div className="tag-list">
-                                        {project.tags.map((tag) => (
-                                            <span key={tag}>{tag}</span>
+                                    <p>{project.description}</p>
+
+                                    <div className="tags">
+                                        {project.skills.map((skill) => (
+                                            <span key={skill}>{skill}</span>
                                         ))}
                                     </div>
                                 </div>
 
                                 <div className="project-arrow">
-                                    <ArrowUpRight size={19} />
+                                    <ArrowUpRight size={17} />
                                 </div>
                             </article>
                         ))}
                     </div>
                 </section>
 
-                {/* CONTACT */}
-
-                <section
-                    className="contact section-width"
-                    id="contact"
-                >
+                <section className="contact container" id="contact">
                     <div className="contact-line" />
 
-                    <p className="mono-label">
-                        HAVE A PROJECT IN MIND?
-                    </p>
+                    <p className="section-label">GET IN TOUCH</p>
 
                     <h2>
                         Let's build something
                         <br />
-                        <em>great.</em>
+                        <span>great.</span>
                     </h2>
 
-                    <p className="contact-description">
-                        I'm open to Senior Flutter Developer
-                        opportunities, especially remote roles.
+                    <p>
+                        Open to Senior Flutter Developer opportunities
+                        and remote roles.
                     </p>
 
-                    <div className="contact-buttons">
+                    <div className="contact-actions">
                         <a
                             href="https://www.linkedin.com/in/eneskal/"
                             target="_blank"
                             rel="noreferrer"
-                            className="button button-dark"
+                            className="btn btn-primary"
                         >
-                            <Linkedin size={16} />
+                            <Linkedin size={15} />
                             LinkedIn
                         </a>
 
@@ -531,33 +404,29 @@ function App() {
                             href="https://github.com/enes-kal"
                             target="_blank"
                             rel="noreferrer"
-                            className="button button-outline"
+                            className="btn btn-secondary"
                         >
-                            <Github size={16} />
+                            <Github size={15} />
                             GitHub
                         </a>
 
                         <a
-                            href="mailto:eneskal@outlook.com"
-                            className="button button-outline"
+                            href="mailto:YOUR_EMAIL_HERE"
+                            className="btn btn-secondary"
                         >
-                            <Mail size={16} />
+                            <Mail size={15} />
                             Email
                         </a>
                     </div>
                 </section>
             </main>
 
-            {/* FOOTER */}
-
-            <footer className="footer section-width">
-                <div className="footer-brand">
+            <footer className="footer container">
+                <div className="footer-logo">
                     ENES<span>.</span>
                 </div>
 
-                <p>
-                    Senior Flutter Developer · Mobile Applications
-                </p>
+                <p>Senior Flutter Developer</p>
 
                 <div className="footer-socials">
                     <a
@@ -565,7 +434,7 @@ function App() {
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <Linkedin size={16} />
+                        <Linkedin size={15} />
                     </a>
 
                     <a
@@ -573,16 +442,15 @@ function App() {
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <Github size={16} />
+                        <Github size={15} />
                     </a>
                 </div>
 
-                <span className="copyright">
-                    © {new Date().getFullYear()} Enes Kal
-                </span>
+                <small>© {new Date().getFullYear()} Enes Kal</small>
             </footer>
         </div>
     );
 }
 
 export default App;
+
