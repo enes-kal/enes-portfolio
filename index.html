@@ -1,15 +1,1078 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Enes Kal — Senior Flutter Developer</title>
+  <meta name="description"
+    content="Enes Kal — Senior Flutter Developer. Mobile application developer specialized in Flutter, Dart and scalable mobile applications.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #09090d;
+      --card: #101017;
+      --text: #f2f2f5;
+      --muted: #8a8a99;
+      --border: #252532;
+      --accent: #00e5ff;
+      --accent2: #7c3aed;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Mono", monospace;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .015) 1px, transparent 1px);
+      background-size: 4px 4px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 5%;
+      background: rgba(9, 9, 13, .82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      color: var(--accent);
+      font-family: "Syne", sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      min-height: 100vh;
+      max-width: 1400px;
+      margin: auto;
+      padding: 150px 5% 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 70px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      right: -200px;
+      top: 100px;
+      background: radial-gradient(circle, rgba(0, 229, 255, .08), transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .hero-name {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(55px, 9vw, 125px);
+      line-height: .9;
+      letter-spacing: -.07em;
+      margin-bottom: 30px;
+    }
+
+    .hero-name span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--accent);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 35px;
+    }
+
+    .hero-description strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: .25s;
+    }
+
+    .button:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: 500;
+    }
+
+    .button.primary:hover {
+      background: white;
+      border-color: white;
+      color: #000;
+    }
+
+    .phone {
+      width: 260px;
+      height: 520px;
+      border: 8px solid #292936;
+      border-radius: 42px;
+      background: #0d0d13;
+      box-shadow:
+        0 40px 100px rgba(0, 0, 0, .6),
+        0 0 80px rgba(0, 229, 255, .08);
+      transform: rotateY(-14deg) rotateX(4deg);
+      position: relative;
+      overflow: hidden;
+      animation: float 5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 24px;
+      background: #292936;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      border-radius: 0 0 15px 15px;
+      z-index: 5;
+    }
+
+    .phone-screen {
+      height: 100%;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(124, 58, 237, .2), transparent 35%),
+        radial-gradient(circle at 10% 80%, rgba(0, 229, 255, .12), transparent 35%);
+      padding: 80px 18px 20px;
+    }
+
+    .phone-title {
+      font-family: "Syne", sans-serif;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .phone-card {
+      height: 72px;
+      margin-bottom: 12px;
+      border: 1px solid #292936;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .025);
+    }
+
+    .phone-card.big {
+      height: 120px;
+      border-color: rgba(0, 229, 255, .15);
+    }
+
+    .phone-button {
+      position: absolute;
+      bottom: 25px;
+      right: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotateY(-14deg) rotateX(4deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotateY(-14deg) rotateX(4deg);
+      }
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 5%;
+    }
+
+    .section-header {
+      margin-bottom: 45px;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(35px, 5vw, 60px);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .section-title span {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--accent);
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 45px;
+      padding: 35px 0;
+      border-bottom: 1px solid var(--border);
+      transition: .25s;
+    }
+
+    .timeline-item:hover {
+      padding-left: 10px;
+      background: rgba(0, 229, 255, .015);
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-right: 7px;
+      box-shadow: 0 0 10px rgba(0, 229, 255, .7);
+    }
+
+    .company {
+      font-family: "Syne", sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .company span {
+      color: var(--accent);
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    .role {
+      color: var(--accent);
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    .description {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+      max-width: 760px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: .25s;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: .3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 229, 255, .35);
+    }
+
+    .project:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-number {
+      font-family: "Syne", sans-serif;
+      font-size: 45px;
+      color: #272733;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      font-family: "Syne", sans-serif;
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .project-subtitle {
+      color: var(--accent);
+      font-size: 11px;
+      margin-bottom: 15px;
+    }
+
+    .project-description {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 11px;
+      text-decoration: none;
+      font-size: 10px;
+      transition: .2s;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* SKILLS */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      border: 1px solid var(--border);
+      padding: 11px 15px;
+      color: var(--muted);
+      font-size: 11px;
+      transition: .2s;
+    }
+
+    .skill:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* CONTACT */
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+    }
+
+    .contact-title {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(35px, 5vw, 65px);
+      line-height: .95;
+      margin-bottom: 25px;
+    }
+
+    .contact-title span {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--accent);
+    }
+
+    .contact-text {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--border);
+      padding: 18px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      transition: .2s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateX(5px);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 5%;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .08em;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 130px;
+      }
+
+      .phone {
+        align-self: center;
+        transform: scale(.85) rotateY(-14deg) rotateX(4deg);
+        margin-top: -30px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 18px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 120px 20px 70px;
+      }
+
+      .hero-name {
+        font-size: 60px;
+      }
+
+      section {
+        padding: 65px 20px;
+      }
+
+      .timeline-item {
+        padding: 25px 0;
+      }
+
+      .project {
+        padding: 22px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>Enes Kal</h1>
-  <h2>Senior Flutter Developer</h2>
-  <p>GitHub Pages çalışıyor.</p>
+  <nav>
+    <a href="#" class="logo">ENES.KAL</a>
+
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Senior Flutter Developer
+      </div>
+
+      <h1 class="hero-name">
+        ENES
+        <span>KAL</span>
+      </h1>
+
+      <p class="hero-description">
+        <strong>Senior Flutter Developer</strong> focused on building
+        production-ready mobile applications with clean architecture,
+        scalable code and modern development practices.
+        <br><br>
+        10+ years in software development and extensive experience
+        delivering mobile applications for iOS and Android.
+      </p>
+
+      <div class="buttons">
+        <a class="button primary" href="#projects">View Projects</a>
+        <a class="button" href="https://www.linkedin.com/in/eneskal/" target="_blank">LinkedIn ↗</a>
+        <a class="button" href="mailto:enes.kal.dev@gmail.com">Contact ↗</a>
+      </div>
+
+    </div>
+
+
+    <div class="phone">
+      <div class="phone-screen">
+
+        <div class="phone-title">
+          Flutter
+        </div>
+
+        <div class="phone-card big"></div>
+        <div class="phone-card"></div>
+        <div class="phone-card"></div>
+
+        <div class="phone-button">
+          +
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scroll">
+      Scroll ↓
+    </div>
+
+  </header>
+
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <div class="section-header">
+      <div class="section-label">01 / Career</div>
+
+      <h2 class="section-title">
+        Work <span>Experience</span>
+      </h2>
+    </div>
+
+
+    <div class="timeline">
+
+
+      <div class="timeline-item">
+
+        <div class="timeline-date">
+          <span class="dot"></span>
+          2026 — Present
+        </div>
+
+        <div>
+
+          <div class="company">
+            FinaryLabs
+            <span>· Remote</span>
+          </div>
+
+          <div class="role">
+            Senior Flutter Developer
+          </div>
+
+          <p class="description">
+            Developing financial and investment-focused mobile applications
+            with Flutter. Working on scalable architecture, real-time financial
+            data, API integrations and production mobile releases.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="timeline-item">
+
+        <div class="timeline-date">
+          <span class="dot"></span>
+          2025 — 2026
+        </div>
+
+        <div>
+
+          <div class="company">
+            FinaryLabs
+            <span>· Remote</span>
+          </div>
+
+          <div class="role">
+            Flutter Developer
+          </div>
+
+          <p class="description">
+            Built and maintained production-grade Flutter applications,
+            integrating financial services, REST APIs and real-time data.
+            Worked across the complete mobile development lifecycle including
+            App Store and Google Play publishing.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="timeline-item">
+
+        <div class="timeline-date">
+          <span class="dot"></span>
+          2017 — 2025
+        </div>
+
+        <div>
+
+          <div class="company">
+            Software Development
+          </div>
+
+          <div class="role">
+            Mobile Application Developer
+          </div>
+
+          <p class="description">
+            Developed mobile applications for different industries and
+            business requirements. Worked with Flutter, Dart, REST APIs,
+            Firebase, local databases, state management and third-party SDKs.
+            Experienced in leading mobile development and publishing
+            applications to both major mobile stores.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <div class="section-header">
+      <div class="section-label">02 / Selected Work</div>
+
+      <h2 class="section-title">
+        Featured <span>Projects</span>
+      </h2>
+    </div>
+
+
+    <div class="projects">
+
+
+      <!-- Hissedar -->
+
+      <article class="project">
+
+        <div class="project-number">01</div>
+
+        <h3 class="project-title">
+          Hissedar
+        </h3>
+
+        <div class="project-subtitle">
+          Hisse Al Sat
+        </div>
+
+        <p class="project-description">
+          Modern investment application focused on stock market users,
+          financial data and trading-oriented experiences.
+          Developed with Flutter for iOS and Android.
+        </p>
+
+        <div class="project-links">
+
+          <a class="project-link" href="https://play.google.com/store/apps/details?id=app.hissedar.com&hl=en_US"
+            target="_blank">
+            Google Play ↗
+          </a>
+
+          <a class="project-link" href="https://apps.apple.com/us/app/hissedar-hisse-al-sat/id6747434909"
+            target="_blank">
+            App Store ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- FinaryTrade -->
+
+      <article class="project">
+
+        <div class="project-number">02</div>
+
+        <h3 class="project-title">
+          FinaryTrade
+        </h3>
+
+        <div class="project-subtitle">
+          Broker App
+        </div>
+
+        <p class="project-description">
+          Professional broker application providing users with financial
+          market functionality and trading-oriented mobile experiences.
+          Built with Flutter for iOS and Android.
+        </p>
+
+        <div class="project-links">
+
+          <a class="project-link" href="https://play.google.com/store/apps/details?id=com.finary.trader&hl=en_US"
+            target="_blank">
+            Google Play ↗
+          </a>
+
+          <a class="project-link" href="https://apps.apple.com/tr/app/finarytrade/id6747672389?l=tr" target="_blank">
+            App Store ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- Parca -->
+
+      <article class="project">
+
+        <div class="project-number">03</div>
+
+        <h3 class="project-title">
+          Parca
+        </h3>
+
+        <div class="project-subtitle">
+          Şarkı Borsası · Şarkılara Ortak Ol
+        </div>
+
+        <p class="project-description">
+          A unique music investment platform where users can discover songs
+          and participate in a song-based marketplace experience.
+        </p>
+
+        <div class="project-links">
+
+          <a class="project-link" href="https://play.google.com/store/apps/details?id=com.finarylabs.parca&hl=en_US"
+            target="_blank">
+            Google Play ↗
+          </a>
+
+          <a class="project-link" href="https://apps.apple.com/tr/app/parca/id6615072917?l=tr" target="_blank">
+            App Store ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- Liderform -->
+
+      <article class="project">
+
+        <div class="project-number">04</div>
+
+        <h3 class="project-title">
+          Liderform
+        </h3>
+
+        <div class="project-subtitle">
+          Sports & Racing
+        </div>
+
+        <p class="project-description">
+          Mobile application built for users following horse racing,
+          race information and related sports content.
+          Available on both iOS and Android.
+        </p>
+
+        <div class="project-links">
+
+          <a class="project-link" href="https://play.google.com/store/apps/details?id=com.liderform&hl=tr"
+            target="_blank">
+            Google Play ↗
+          </a>
+
+          <a class="project-link" href="https://apps.apple.com/al/app/liderform/id1380650135" target="_blank">
+            App Store ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <div class="section-header">
+      <div class="section-label">03 / Technology</div>
+
+      <h2 class="section-title">
+        Tech <span>Stack</span>
+      </h2>
+    </div>
+
+
+    <div class="skills">
+
+      <div class="skill">Flutter</div>
+      <div class="skill">Dart</div>
+      <div class="skill">Clean Architecture</div>
+      <div class="skill">BLoC</div>
+      <div class="skill">Riverpod</div>
+      <div class="skill">MobX</div>
+      <div class="skill">REST API</div>
+      <div class="skill">Dio</div>
+      <div class="skill">Firebase</div>
+      <div class="skill">GraphQL</div>
+      <div class="skill">SQLite</div>
+      <div class="skill">Hive</div>
+      <div class="skill">Git</div>
+      <div class="skill">GitHub</div>
+      <div class="skill">iOS</div>
+      <div class="skill">Android</div>
+      <div class="skill">Google Maps</div>
+      <div class="skill">Push Notifications</div>
+      <div class="skill">App Store</div>
+      <div class="skill">Google Play</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="contact">
+
+      <div>
+
+        <div class="section-label">
+          04 / Contact
+        </div>
+
+        <h2 class="contact-title">
+          Let's build<br>
+          <span>something.</span>
+        </h2>
+
+        <p class="contact-text">
+          I'm open to new opportunities as a Senior Flutter Developer,
+          especially remote positions and challenging mobile projects.
+        </p>
+
+      </div>
+
+
+      <div class="contact-links">
+
+        <a class="contact-link" href="https://www.linkedin.com/in/eneskal/" target="_blank">
+          <span>LinkedIn</span>
+          <span>↗</span>
+        </a>
+
+        <a class="contact-link" href="https://github.com/enes-kal" target="_blank">
+          <span>GitHub</span>
+          <span>↗</span>
+        </a>
+
+        <a class="contact-link" href="mailto:enes.kal.dev@gmail.com">
+          <span>Email</span>
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <span>© 2026 ENES KAL</span>
+
+    <span>
+      SENIOR FLUTTER DEVELOPER
+    </span>
+
+  </footer>
 
 </body>
+
 </html>
