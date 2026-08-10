@@ -1,814 +1,579 @@
 import {
+    ArrowDown,
     ArrowUpRight,
+    ExternalLink,
     Github,
     Linkedin,
     Mail,
     MapPin,
-    ExternalLink,
     Smartphone,
-    Code2,
-    Layers3,
-    Store,
-    BriefcaseBusiness,
 } from "lucide-react";
-import { useState } from "react";
+
+const experiences = [
+    {
+        year: "2017 — 2026",
+        company: "FinaryLabs",
+        role: "Senior Flutter Developer",
+        description:
+            "Developing production-ready mobile applications with Flutter and Dart, focusing on scalable architecture, real-time data, performance and maintainability.",
+        tags: [
+            "Flutter",
+            "Dart",
+            "Fintech",
+            "Real-time Data",
+            "iOS",
+            "Android",
+        ],
+    },
+];
 
 const projects = [
     {
+        number: "01",
         title: "Hissedar",
-        subtitle: {
-            tr: "Hisse Al Sat",
-            en: "Stock Trading",
-        },
-        description: {
-            tr: "Hisse senedi alım satımı, portföy takibi ve gerçek zamanlı finansal veriler sunan modern yatırım uygulaması.",
-            en: "A modern investment application focused on stock trading, portfolio tracking and real-time financial data.",
-        },
-        technologies: ["Flutter", "Dart", "REST API", "Finance"],
+        subtitle: "Hisse Al Sat",
+        description:
+            "A modern investment application focused on stock market access, portfolio tracking and financial data.",
+        tags: ["Flutter", "Dart", "Finance", "REST API"],
         google:
             "https://play.google.com/store/apps/details?id=app.hissedar.com&hl=en_US",
         apple:
             "https://apps.apple.com/us/app/hissedar-hisse-al-sat/id6747434909",
     },
     {
+        number: "02",
         title: "FinaryTrade",
-        subtitle: {
-            tr: "Broker Uygulaması",
-            en: "Broker App",
-        },
-        description: {
-            tr: "Finansal piyasalar ve gerçek zamanlı işlem süreçleri için geliştirilen yatırım ve broker uygulaması.",
-            en: "A trading and brokerage application designed for financial markets and real-time trading workflows.",
-        },
-        technologies: ["Flutter", "Dart", "REST API", "Real-time Data"],
+        subtitle: "Broker App",
+        description:
+            "A trading and brokerage application built for financial markets and real-time trading workflows.",
+        tags: ["Flutter", "Dart", "Broker", "Real-time"],
         google:
             "https://play.google.com/store/apps/details?id=com.finary.trader&hl=en_US",
         apple:
             "https://apps.apple.com/tr/app/finarytrade/id6747672389?l=tr",
     },
     {
-        title: "Liderform",
-        subtitle: {
-            tr: "Spor Platformu",
-            en: "Sports Platform",
-        },
-        description: {
-            tr: "At yarışı bilgileri, analizler ve kullanıcı odaklı deneyimler sunan mobil spor platformu.",
-            en: "A mobile sports platform delivering horse racing information, analysis and user-focused experiences.",
-        },
-        technologies: ["Flutter", "Dart", "REST API", "Mobile"],
-        google:
-            "https://play.google.com/store/apps/details?id=com.liderform&hl=tr",
-        apple:
-            "https://apps.apple.com/al/app/liderform/id1380650135",
-    },
-    {
+        number: "03",
         title: "Parca",
-        subtitle: {
-            tr: "Şarkı Borsası",
-            en: "Music Investment",
-        },
-        description: {
-            tr: "Kullanıcıların şarkıların performansına ve değerine ortak olabildiği müzik yatırım platformu.",
-            en: "A music investment platform where users can participate in the performance and value of songs.",
-        },
-        technologies: ["Flutter", "Dart", "API Integration", "Fintech"],
+        subtitle: "Şarkı Borsası",
+        description:
+            "A music investment platform where users can participate in the performance and value of songs.",
+        tags: ["Flutter", "Dart", "Fintech", "API"],
         google:
             "https://play.google.com/store/apps/details?id=com.finarylabs.parca&hl=en_US",
         apple:
             "https://apps.apple.com/tr/app/parca/id6615072917?l=tr",
     },
-];
-
-const skills = [
-    "Flutter",
-    "Dart",
-    "iOS",
-    "Android",
-    "Clean Architecture",
-    "SOLID",
-    "MVVM",
-    "MobX",
-    "Riverpod",
-    "BLoC",
-    "REST API",
-    "GraphQL",
-    "Dio",
-    "Firebase",
-    "SQLite",
-    "Hive",
-    "Git",
-    "CI/CD",
-];
-
-const experiences = [
     {
-        company: "FinaryLabs",
-        role: {
-            tr: "Senior Flutter Developer",
-            en: "Senior Flutter Developer",
-        },
-        type: {
-            tr: "Tam zamanlı",
-            en: "Full-time",
-        },
-        date: "Haz 2024 — Tem 2026",
-        location: {
-            tr: "Uzaktan",
-            en: "Remote",
-        },
-        description: {
-            tr: "Fintech ve finansal piyasalar üzerine üretim uygulamaları geliştirdim. Flutter, Figma ve yapay zeka destekli geliştirme süreçlerinde çalıştım.",
-            en: "Developed production applications for fintech and financial markets, working with Flutter, Figma and AI-assisted development workflows.",
-        },
-    },
-    {
-        company: "IKON Menkul",
-        role: {
-            tr: "Senior Flutter Developer",
-            en: "Senior Flutter Developer",
-        },
-        type: {
-            tr: "Yarı zamanlı",
-            en: "Part-time",
-        },
-        date: "Haz 2022 — May 2025",
-        location: {
-            tr: "İstanbul, Türkiye · Uzaktan",
-            en: "Istanbul, Türkiye · Remote",
-        },
-        description: {
-            tr: "Finans ve yatırım odaklı mobil uygulamaların geliştirilmesi ve bakımında görev aldım.",
-            en: "Worked on the development and maintenance of mobile applications focused on finance and investment.",
-        },
-    },
-    {
-        company: "GoldenSoft",
-        role: {
-            tr: "Senior Mobile Developer",
-            en: "Senior Mobile Developer",
-        },
-        type: {
-            tr: "Tam zamanlı",
-            en: "Full-time",
-        },
-        date: "Ağu 2023 — May 2024",
-        location: {
-            tr: "Uzaktan",
-            en: "Remote",
-        },
-        description: {
-            tr: "Mobil geliştirme ekibinde teknik sorumluluk aldım ve Mobile Team Lead olarak görev yaptım.",
-            en: "Took technical responsibility within the mobile development team and worked as Mobile Team Lead.",
-        },
-    },
-    {
-        company: "Flutter App Development",
-        role: {
-            tr: "Mid Mobile Application Developer",
-            en: "Mid Mobile Application Developer",
-        },
-        type: {
-            tr: "Uzaktan",
-            en: "Remote",
-        },
-        date: "May 2018 — Ağu 2023",
-        location: {
-            tr: "Uzaktan",
-            en: "Remote",
-        },
-        description: {
-            tr: "Flutter tabanlı mobil uygulamaların geliştirilmesinde görev aldım.",
-            en: "Worked on the development of Flutter-based mobile applications.",
-        },
-    },
-    {
-        company: "Dağ Yazılım",
-        role: {
-            tr: "Mid Software Developer",
-            en: "Mid Software Developer",
-        },
-        type: {
-            tr: "Tam zamanlı",
-            en: "Full-time",
-        },
-        date: "May 2018 — Nis 2019",
-        location: {
-            tr: "Türkiye",
-            en: "Türkiye",
-        },
-        description: {
-            tr: "Yazılım geliştirme süreçlerinde görev aldım ve farklı projeler üzerinde çalıştım.",
-            en: "Worked on software development processes across different projects.",
-        },
-    },
-    {
-        company: "Fugo Bilişim Teknolojileri",
-        role: {
-            tr: "Game Developer",
-            en: "Game Developer",
-        },
-        type: {
-            tr: "Tam zamanlı",
-            en: "Full-time",
-        },
-        date: "Eki 2017 — Nis 2018",
-        location: {
-            tr: "İstanbul, Türkiye",
-            en: "Istanbul, Türkiye",
-        },
-        description: {
-            tr: "Mobil ve oyun geliştirme süreçlerinde görev aldım.",
-            en: "Worked on mobile and game development projects.",
-        },
-    },
-    {
-        company: "1ki3",
-        role: {
-            tr: "Software Developer / Game Developer",
-            en: "Software Developer / Game Developer",
-        },
-        type: {
-            tr: "Tam zamanlı",
-            en: "Full-time",
-        },
-        date: "Oca 2017 — Tem 2017",
-        location: {
-            tr: "İstanbul, Türkiye",
-            en: "Istanbul, Türkiye",
-        },
-        description: {
-            tr: "Yazılım ve oyun geliştirme projelerinde görev aldım.",
-            en: "Worked on software and game development projects.",
-        },
-    },
-    {
-        company: "Nokta Elektronik ve Bilişim Sistemleri",
-        role: {
-            tr: "Software Development Intern",
-            en: "Software Development Intern",
-        },
-        type: {
-            tr: "Staj",
-            en: "Internship",
-        },
-        date: "Haz 2012 — Ağu 2013",
-        location: {
-            tr: "Türkiye",
-            en: "Türkiye",
-        },
-        description: {
-            tr: "Yazılım geliştirme süreçlerinde profesyonel deneyim kazandım.",
-            en: "Gained professional experience in software development processes.",
-        },
-    },
-    {
-        company: "Koyuncu Elektronik A.Ş.",
-        role: {
-            tr: "Software Development Intern",
-            en: "Software Development Intern",
-        },
-        type: {
-            tr: "Staj",
-            en: "Internship",
-        },
-        date: "Haz 2009 — Mar 2010",
-        location: {
-            tr: "Türkiye",
-            en: "Türkiye",
-        },
-        description: {
-            tr: "Yazılım geliştirme kariyerimin ilk profesyonel adımlarını attım.",
-            en: "Started my professional journey in software development.",
-        },
+        number: "04",
+        title: "Liderform",
+        subtitle: "Sports Platform",
+        description:
+            "A mobile sports platform delivering horse racing information, analysis and user-focused experiences.",
+        tags: ["Flutter", "Dart", "REST API", "Mobile"],
+        google:
+            "https://play.google.com/store/apps/details?id=com.liderform&hl=tr",
+        apple:
+            "https://apps.apple.com/al/app/liderform/id1380650135",
     },
 ];
 
-const content = {
-    tr: {
-        nav: ["Hakkımda", "Deneyim", "Projeler", "Yetenekler"],
-        contact: "İletişime geç",
-        available: "Uzaktan fırsatlara açığım",
-        eyebrow: "SENIOR MOBILE APP DEVELOPER",
-        heroTitle: <>Flutter ile <span>mobil deneyimler</span> geliştiriyorum.</>,
-        heroDescription:
-            "10+ yıllık yazılım deneyimine sahip Senior Flutter Developer. iOS ve Android için production-ready mobil uygulamalar geliştiriyorum.",
-        viewWork: "Projelerimi gör",
-        profile: "PROFİL",
-        experience: "10+ yıl",
-        specialization: "Flutter",
-        focus: "Production Apps",
-        years: "Yıl Deneyim",
-        apps: "Mobil Uygulama",
-        platforms: "Platform",
-        featured: "Öne Çıkan Proje",
-        aboutLabel: "HAKKIMDA",
-        aboutTitle: "Sadece arayüz değil, ürün geliştiriyorum.",
-        aboutLarge:
-            "Flutter ve Dart konusunda uzmanlaşmış, 10+ yıllık yazılım geliştirme deneyimine sahip Senior Mobile App Developer'ım.",
-        aboutText1:
-            "iOS ve Android için ölçeklenebilir, sürdürülebilir ve production-ready mobil uygulamalar geliştiriyorum. Mimari, state management, API entegrasyonları, gerçek zamanlı veriler ve uygulama yayın süreçlerinde deneyimliyim.",
-        aboutText2:
-            "Fintech, yatırım, spor ve tüketici uygulamaları dahil olmak üzere farklı sektörlerde ürünler geliştirdim.",
-        engineering: "Mühendislik",
-        engineeringDesc: "Temiz ve ölçeklenebilir mimari",
-        crossPlatform: "Cross Platform",
-        crossPlatformDesc: "Tek kod tabanı, iOS & Android",
-        production: "Production",
-        productionDesc: "App Store & Google Play",
-        experienceLabel: "DENEYİM",
-        experienceTitle: "Profesyonel kariyerim.",
-        projectsLabel: "SEÇİLMİŞ PROJELER",
-        projectsTitle: "Geliştirdiğim ürünler.",
-        google: "Google Play",
-        apple: "App Store",
-        skillsLabel: "TEKNOLOJİLER",
-        skillsTitle: "Çalıştığım teknolojiler.",
-        ctaLabel: "BİRLİKTE ÇALIŞALIM",
-        ctaTitle: <>Aklında bir mobil ürün<br />var mı?</>,
-        ctaText:
-            "Yeni fırsatlara, özellikle remote Senior Flutter Developer pozisyonlarına açığım.",
-        getInTouch: "İletişime geç",
-        mobile: "iOS & Android",
+const skillGroups = [
+    {
+        title: "Mobile",
+        skills: ["Flutter", "Dart", "iOS", "Android"],
     },
-    en: {
-        nav: ["About", "Experience", "Projects", "Skills"],
-        contact: "Let's talk",
-        available: "Open to Remote Opportunities",
-        eyebrow: "SENIOR MOBILE APP DEVELOPER",
-        heroTitle: <>Building <span>mobile experiences</span> with Flutter.</>,
-        heroDescription:
-            "Senior Flutter Developer with 10+ years of software development experience, building production-ready mobile applications for iOS and Android.",
-        viewWork: "View my work",
-        profile: "PROFILE",
-        experience: "10+ years",
-        specialization: "Flutter",
-        focus: "Production Apps",
-        years: "Years Experience",
-        apps: "Mobile Apps",
-        platforms: "Platforms",
-        featured: "Featured Products",
-        aboutLabel: "ABOUT ME",
-        aboutTitle: "Building products, not just interfaces.",
-        aboutLarge:
-            "I'm a Senior Mobile App Developer specialized in Flutter and Dart, with more than a decade of software development experience.",
-        aboutText1:
-            "I build scalable, maintainable and production-ready mobile applications for iOS and Android, with experience across architecture, state management, API integrations, real-time data and app publishing.",
-        aboutText2:
-            "I've worked on products across fintech, investment, sports and consumer applications.",
-        engineering: "Engineering",
-        engineeringDesc: "Clean & scalable architecture",
-        crossPlatform: "Cross Platform",
-        crossPlatformDesc: "One codebase, iOS & Android",
-        production: "Production",
-        productionDesc: "App Store & Google Play",
-        experienceLabel: "EXPERIENCE",
-        experienceTitle: "Professional experience.",
-        projectsLabel: "SELECTED WORK",
-        projectsTitle: "Products I've worked on.",
-        google: "Google Play",
-        apple: "App Store",
-        skillsLabel: "TECHNOLOGIES",
-        skillsTitle: "Tools I work with.",
-        ctaLabel: "LET'S WORK TOGETHER",
-        ctaTitle: <>Have a mobile product<br />in mind?</>,
-        ctaText:
-            "I'm currently open to new opportunities, especially remote Senior Flutter Developer roles.",
-        getInTouch: "Get in touch",
-        mobile: "iOS & Android",
+    {
+        title: "Architecture",
+        skills: [
+            "Clean Architecture",
+            "MVVM",
+            "SOLID",
+            "OOP",
+        ],
     },
-};
+    {
+        title: "State Management",
+        skills: ["MobX", "Riverpod", "BLoC"],
+    },
+    {
+        title: "Backend & Data",
+        skills: [
+            "REST API",
+            "GraphQL",
+            "Dio",
+            "Firebase",
+            "SQLite",
+            "Hive",
+        ],
+    },
+    {
+        title: "Tools",
+        skills: [
+            "Git",
+            "CI/CD",
+            "App Store",
+            "Google Play",
+        ],
+    },
+];
 
 function App() {
-    const [language, setLanguage] = useState("tr");
-    const t = content[language];
-
-    const scrollTo = (id) => {
-        document.getElementById(id)?.scrollIntoView({
-            behavior: "smooth",
-        });
-    };
-
     return (
-        <div className="app">
-            <nav className="navbar">
-                <a href="#home" className="logo">
-                    EK<span>.</span>
+        <div className="site">
+            <div className="noise" />
+
+            {/* NAVIGATION */}
+
+            <header className="header">
+                <a href="#home" className="brand">
+                    ENES<span>.</span>
                 </a>
 
-                <div className="nav-links">
-                    <a href="#about">{t.nav[0]}</a>
-                    <a href="#experience">{t.nav[1]}</a>
-                    <a href="#projects">{t.nav[2]}</a>
-                    <a href="#skills">{t.nav[3]}</a>
-                </div>
+                <nav>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
 
-                <div className="nav-right">
-                    <div className="language-switcher">
-                        <button
-                            className={language === "tr" ? "active" : ""}
-                            onClick={() => setLanguage("tr")}
-                        >
-                            TR
-                        </button>
-                        <span>/</span>
-                        <button
-                            className={language === "en" ? "active" : ""}
-                            onClick={() => setLanguage("en")}
-                        >
-                            EN
-                        </button>
-                    </div>
-
-                    <a
-                        className="nav-contact"
-                        href="mailto:hello@eneskal.dev"
-                    >
-                        {t.contact}
-                    </a>
-                </div>
-            </nav>
+                <a
+                    href="https://www.linkedin.com/in/eneskal/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="header-link"
+                >
+                    LinkedIn
+                    <ArrowUpRight size={14} />
+                </a>
+            </header>
 
             <main>
-                <section className="hero container" id="home">
-                    <div className="hero-content">
-                        <div className="available">
-                            <span className="available-dot" />
-                            {t.available}
+                {/* HERO */}
+
+                <section className="hero section-width" id="home">
+                    <div className="hero-left">
+                        <div className="availability">
+                            <span className="pulse" />
+                            Available for remote opportunities
                         </div>
 
-                        <p className="eyebrow">{t.eyebrow}</p>
-
-                        <h1>{t.heroTitle}</h1>
-
-                        <p className="hero-description">
-                            {t.heroDescription}
+                        <p className="hero-kicker">
+                            SENIOR MOBILE APP DEVELOPER
                         </p>
 
-                        <div className="hero-actions">
-                            <a href="#projects" className="primary-button">
-                                {t.viewWork}
-                                <ArrowUpRight size={18} />
+                        <h1>
+                            I build mobile
+                            <br />
+                            products with
+                            <br />
+                            <em>Flutter.</em>
+                        </h1>
+
+                        <p className="hero-text">
+                            Senior Flutter Developer with 10+ years of
+                            software development experience, building
+                            production-ready applications for iOS and
+                            Android.
+                        </p>
+
+                        <div className="hero-buttons">
+                            <a href="#projects" className="button button-dark">
+                                Explore my work
+                                <ArrowDown size={16} />
                             </a>
 
                             <a
                                 href="https://www.linkedin.com/in/eneskal/"
                                 target="_blank"
                                 rel="noreferrer"
-                                className="secondary-button"
+                                className="button button-outline"
                             >
                                 LinkedIn
-                                <Linkedin size={17} />
+                                <ArrowUpRight size={16} />
                             </a>
                         </div>
 
-                        <div className="hero-meta">
-                            <span>
-                                <MapPin size={16} />
-                                Istanbul, Türkiye
-                            </span>
-
-                            <span>
-                                <Smartphone size={16} />
-                                {t.mobile}
-                            </span>
+                        <div className="hero-location">
+                            <MapPin size={14} />
+                            Istanbul, Türkiye
                         </div>
                     </div>
 
-                    <div className="hero-card">
-                        <div className="hero-card-top">
-                            <span>{t.profile}</span>
-
-                            <div className="status">
-                                <span />
-                                Available
-                            </div>
-                        </div>
-
-                        <div className="hero-code">
-                            <span className="code-purple">const</span>{" "}
-                            <span className="code-blue">developer</span>{" "}
-                            <span>=</span>{" "}
-                            <span className="code-yellow">{"{"}</span>
-
-                            <div className="code-line">
-                                <span className="code-property">
-                                    experience
-                                </span>
-                                <span>:</span>
-                                <span className="code-green">
-                                    "{t.experience}"
-                                </span>
-                            </div>
-
-                            <div className="code-line">
-                                <span className="code-property">
-                                    specialization
-                                </span>
-                                <span>:</span>
-                                <span className="code-green">
-                                    "Flutter"
-                                </span>
-                            </div>
-
-                            <div className="code-line">
-                                <span className="code-property">
-                                    platforms
-                                </span>
-                                <span>:</span>
-                                <span className="code-green">
-                                    ["iOS", "Android"]
-                                </span>
-                            </div>
-
-                            <div className="code-line">
-                                <span className="code-property">
-                                    focus
-                                </span>
-                                <span>:</span>
-                                <span className="code-green">
-                                    "{t.focus}"
-                                </span>
-                            </div>
-
-                            <span className="code-yellow">{"}"}</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section className="stats container">
-                    <div>
-                        <strong>10+</strong>
-                        <span>{t.years}</span>
-                    </div>
-
-                    <div>
-                        <strong>12+</strong>
-                        <span>{t.apps}</span>
-                    </div>
-
-                    <div>
-                        <strong>2</strong>
-                        <span>{t.platforms}</span>
-                    </div>
-
-                    <div>
-                        <strong>4</strong>
-                        <span>{t.featured}</span>
-                    </div>
-                </section>
-
-                <section className="section container" id="about">
-                    <div className="section-heading">
-                        <span className="section-number">01</span>
-
-                        <div>
-                            <p className="section-label">
-                                {t.aboutLabel}
-                            </p>
-                            <h2>{t.aboutTitle}</h2>
-                        </div>
-                    </div>
-
-                    <div className="about-grid">
-                        <div className="about-main">
-                            <p className="large-text">
-                                {t.aboutLarge}
-                            </p>
-
-                            <p>{t.aboutText1}</p>
-
-                            <p>{t.aboutText2}</p>
-                        </div>
-
-                        <div className="about-side">
-                            <div className="info-card">
-                                <Code2 />
-                                <div>
-                                    <strong>{t.engineering}</strong>
-                                    <span>{t.engineeringDesc}</span>
-                                </div>
-                            </div>
-
-                            <div className="info-card">
-                                <Layers3 />
-                                <div>
-                                    <strong>{t.crossPlatform}</strong>
-                                    <span>{t.crossPlatformDesc}</span>
-                                </div>
-                            </div>
-
-                            <div className="info-card">
-                                <Store />
-                                <div>
-                                    <strong>{t.production}</strong>
-                                    <span>{t.productionDesc}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section className="section container" id="experience">
-                    <div className="section-heading">
-                        <span className="section-number">02</span>
-
-                        <div>
-                            <p className="section-label">
-                                {t.experienceLabel}
-                            </p>
-                            <h2>{t.experienceTitle}</h2>
-                        </div>
-                    </div>
-
-                    <div className="experience-timeline">
-                        {experiences.map((experience, index) => (
-                            <div
-                                className="timeline-item"
-                                key={`${experience.company}-${experience.date}`}
-                            >
-                                <div className="timeline-marker">
+                    <div className="hero-right">
+                        <div className="terminal">
+                            <div className="terminal-top">
+                                <div className="terminal-dots">
+                                    <span />
+                                    <span />
                                     <span />
                                 </div>
 
-                                <div className="timeline-card">
-                                    <div className="timeline-top">
-                                        <div>
-                                            <span className="timeline-company">
-                                                {experience.company}
-                                            </span>
+                                <span className="terminal-name">
+                                    enes.dart
+                                </span>
 
-                                            <h3>
-                                                {experience.role[language]}
-                                            </h3>
+                                <span className="terminal-space" />
+                            </div>
 
-                                            <span className="timeline-type">
-                                                {experience.type[language]}
-                                            </span>
-                                        </div>
+                            <div className="terminal-body">
+                                <div>
+                                    <span className="purple">class</span>{" "}
+                                    <span className="blue">
+                                        SeniorDeveloper
+                                    </span>{" "}
+                                    {"{"}
+                                </div>
 
-                                        <span className="timeline-date">
-                                            {experience.date}
-                                        </span>
+                                <div className="indent">
+                                    <span className="purple">final</span>{" "}
+                                    String{" "}
+                                    <span className="green">
+                                        experience
+                                    </span>{" "}
+                                    ={" "}
+                                    <span className="orange">
+                                        "10+ years"
+                                    </span>
+                                    ;
+                                </div>
+
+                                <div className="indent">
+                                    <span className="purple">final</span>{" "}
+                                    String{" "}
+                                    <span className="green">
+                                        specialization
+                                    </span>{" "}
+                                    ={" "}
+                                    <span className="orange">
+                                        "Flutter"
+                                    </span>
+                                    ;
+                                </div>
+
+                                <div className="indent">
+                                    <span className="purple">final</span>{" "}
+                                    List&lt;String&gt;{" "}
+                                    <span className="green">
+                                        platforms
+                                    </span>{" "}
+                                    = [
+                                </div>
+
+                                <div className="indent-2">
+                                    <span className="orange">
+                                        "iOS"
+                                    </span>
+                                    ,
+                                </div>
+
+                                <div className="indent-2">
+                                    <span className="orange">
+                                        "Android"
+                                    </span>
+                                </div>
+
+                                <div className="indent">
+                                    ];
+                                </div>
+
+                                <div className="indent">
+                                    <span className="purple">bool</span>{" "}
+                                    <span className="green">
+                                        lovesCleanCode
+                                    </span>{" "}
+                                    ={" "}
+                                    <span className="blue">
+                                        true
+                                    </span>
+                                    ;
+                                </div>
+
+                                <div>{"}"}</div>
+
+                                <div className="terminal-cursor">
+                                    _
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="floating-card">
+                            <Smartphone size={17} />
+                            <div>
+                                <strong>10+</strong>
+                                <span>Mobile Apps</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* INTRO */}
+
+                <section className="intro section-width">
+                    <div className="section-index">01</div>
+
+                    <div className="intro-content">
+                        <p className="mono-label">
+                            A LITTLE ABOUT ME
+                        </p>
+
+                        <h2>
+                            From idea to App Store,
+                            <br />
+                            I build the whole experience.
+                        </h2>
+
+                        <p className="intro-description">
+                            I specialize in cross-platform mobile
+                            development with Flutter. My experience spans
+                            fintech, trading, sports and consumer products.
+                            I care about clean architecture, performance
+                            and code that remains maintainable as products
+                            grow.
+                        </p>
+                    </div>
+                </section>
+
+                {/* EXPERIENCE */}
+
+                <section
+                    className="content-section section-width"
+                    id="experience"
+                >
+                    <div className="section-title-row">
+                        <div className="section-index">02</div>
+
+                        <div>
+                            <p className="mono-label">EXPERIENCE</p>
+                            <h2>Where I've worked.</h2>
+                        </div>
+                    </div>
+
+                    <div className="timeline">
+                        {experiences.map((experience) => (
+                            <div
+                                className="timeline-item"
+                                key={experience.company}
+                            >
+                                <div className="timeline-line">
+                                    <span className="timeline-dot" />
+                                </div>
+
+                                <div className="timeline-date">
+                                    {experience.year}
+                                </div>
+
+                                <div className="timeline-content">
+                                    <span className="company">
+                                        {experience.company}
+                                    </span>
+
+                                    <h3>{experience.role}</h3>
+
+                                    <p>{experience.description}</p>
+
+                                    <div className="tag-list">
+                                        {experience.tags.map((tag) => (
+                                            <span key={tag}>{tag}</span>
+                                        ))}
                                     </div>
-
-                                    <div className="timeline-meta">
-                                        <MapPin size={14} />
-                                        {experience.location[language]}
-                                    </div>
-
-                                    <p>
-                                        {experience.description[language]}
-                                    </p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </section>
 
-                <section className="section container" id="projects">
-                    <div className="section-heading">
-                        <span className="section-number">03</span>
+                {/* SKILLS */}
+
+                <section
+                    className="content-section section-width"
+                    id="skills"
+                >
+                    <div className="section-title-row">
+                        <div className="section-index">03</div>
 
                         <div>
-                            <p className="section-label">
-                                {t.projectsLabel}
-                            </p>
-                            <h2>{t.projectsTitle}</h2>
+                            <p className="mono-label">SKILLS</p>
+                            <h2>Tools of the trade.</h2>
                         </div>
                     </div>
 
-                    <div className="projects-grid">
-                        {projects.map((project, index) => (
+                    <div className="skills-grid">
+                        {skillGroups.map((group) => (
+                            <div className="skill-group" key={group.title}>
+                                <span className="skill-group-title">
+                                    {group.title}
+                                </span>
+
+                                <div className="skills">
+                                    {group.skills.map((skill) => (
+                                        <span key={skill}>{skill}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* PROJECTS */}
+
+                <section
+                    className="content-section section-width"
+                    id="projects"
+                >
+                    <div className="section-title-row">
+                        <div className="section-index">04</div>
+
+                        <div>
+                            <p className="mono-label">
+                                SELECTED PROJECTS
+                            </p>
+
+                            <h2>Products in production.</h2>
+                        </div>
+                    </div>
+
+                    <div className="projects">
+                        {projects.map((project) => (
                             <article
-                                className="project-card"
+                                className="project"
                                 key={project.title}
                             >
-                                <div className="project-number">
-                                    0{index + 1}
-                                </div>
-
-                                <div className="project-icon">
-                                    <Smartphone size={24} />
-                                </div>
-
-                                <div className="project-title">
-                                    <h3>{project.title}</h3>
-                                    <span>
-                                        {project.subtitle[language]}
+                                <div className="project-top">
+                                    <span className="project-number">
+                                        {project.number}
                                     </span>
+
+                                    <div className="project-links">
+                                        <a
+                                            href={project.google}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            title="Google Play"
+                                        >
+                                            Google Play
+                                            <ExternalLink size={13} />
+                                        </a>
+
+                                        <a
+                                            href={project.apple}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            title="App Store"
+                                        >
+                                            App Store
+                                            <ExternalLink size={13} />
+                                        </a>
+                                    </div>
                                 </div>
 
-                                <p>
-                                    {project.description[language]}
-                                </p>
+                                <div className="project-main">
+                                    <p className="project-subtitle">
+                                        {project.subtitle}
+                                    </p>
 
-                                <div className="technology-list">
-                                    {project.technologies.map(
-                                        (technology) => (
-                                            <span key={technology}>
-                                                {technology}
-                                            </span>
-                                        )
-                                    )}
+                                    <h3>{project.title}</h3>
+
+                                    <p className="project-description">
+                                        {project.description}
+                                    </p>
+
+                                    <div className="tag-list">
+                                        {project.tags.map((tag) => (
+                                            <span key={tag}>{tag}</span>
+                                        ))}
+                                    </div>
                                 </div>
 
-                                <div className="project-links">
-                                    <a
-                                        href={project.google}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        {t.google}
-                                        <ExternalLink size={15} />
-                                    </a>
-
-                                    <a
-                                        href={project.apple}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        {t.apple}
-                                        <ExternalLink size={15} />
-                                    </a>
+                                <div className="project-arrow">
+                                    <ArrowUpRight size={19} />
                                 </div>
                             </article>
                         ))}
                     </div>
                 </section>
 
-                <section className="section container" id="skills">
-                    <div className="section-heading">
-                        <span className="section-number">04</span>
+                {/* CONTACT */}
 
-                        <div>
-                            <p className="section-label">
-                                {t.skillsLabel}
-                            </p>
-                            <h2>{t.skillsTitle}</h2>
-                        </div>
-                    </div>
+                <section
+                    className="contact section-width"
+                    id="contact"
+                >
+                    <div className="contact-line" />
 
-                    <div className="skills-wrapper">
-                        {skills.map((skill) => (
-                            <span className="skill" key={skill}>
-                                {skill}
-                            </span>
-                        ))}
-                    </div>
-                </section>
+                    <p className="mono-label">
+                        HAVE A PROJECT IN MIND?
+                    </p>
 
-                <section className="cta container">
-                    <div className="cta-inner">
-                        <p className="section-label">{t.ctaLabel}</p>
+                    <h2>
+                        Let's build something
+                        <br />
+                        <em>great.</em>
+                    </h2>
 
-                        <h2>{t.ctaTitle}</h2>
+                    <p className="contact-description">
+                        I'm open to Senior Flutter Developer
+                        opportunities, especially remote roles.
+                    </p>
 
-                        <p>{t.ctaText}</p>
-
+                    <div className="contact-buttons">
                         <a
                             href="https://www.linkedin.com/in/eneskal/"
                             target="_blank"
                             rel="noreferrer"
-                            className="primary-button"
+                            className="button button-dark"
                         >
-                            {t.getInTouch}
-                            <ArrowUpRight size={18} />
+                            <Linkedin size={16} />
+                            LinkedIn
+                        </a>
+
+                        <a
+                            href="https://github.com/enes-kal"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="button button-outline"
+                        >
+                            <Github size={16} />
+                            GitHub
+                        </a>
+
+                        <a
+                            href="mailto:eneskal@outlook.com"
+                            className="button button-outline"
+                        >
+                            <Mail size={16} />
+                            Email
                         </a>
                     </div>
                 </section>
             </main>
 
-            <footer className="footer container">
-                <div>
-                    <strong>Enes Kal</strong>
-                    <span>Senior Flutter Developer</span>
+            {/* FOOTER */}
+
+            <footer className="footer section-width">
+                <div className="footer-brand">
+                    ENES<span>.</span>
                 </div>
 
-                <div className="footer-links">
+                <p>
+                    Senior Flutter Developer · Mobile Applications
+                </p>
+
+                <div className="footer-socials">
                     <a
                         href="https://www.linkedin.com/in/eneskal/"
                         target="_blank"
                         rel="noreferrer"
-                        aria-label="LinkedIn"
                     >
-                        <Linkedin size={19} />
+                        <Linkedin size={16} />
                     </a>
 
                     <a
                         href="https://github.com/enes-kal"
                         target="_blank"
                         rel="noreferrer"
-                        aria-label="GitHub"
                     >
-                        <Github size={19} />
-                    </a>
-
-                    <a
-                        href="mailto:hello@eneskal.dev"
-                        aria-label="Email"
-                    >
-                        <Mail size={19} />
+                        <Github size={16} />
                     </a>
                 </div>
 
